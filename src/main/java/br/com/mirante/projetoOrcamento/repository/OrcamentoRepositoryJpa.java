@@ -8,30 +8,35 @@ import jakarta.persistence.EntityManager;
 public class OrcamentoRepositoryJpa implements OrcamentoRepository{
 
 	private EntityManager entityManager = JpaUtils.getEntityManager();
-	
+
 	@Override
-	public int obterMaiorId() {
-		
+	public Integer obterMaiorId() {
+
 		return (Integer) entityManager.createQuery("select max(o.id) from Orcamento o").getSingleResult();
 	}
 
 	@Override
 	public void salvar(Orcamento orcamento) {
-		
-		 entityManager.getTransaction().begin();
-		 entityManager.persist(orcamento);
-		 entityManager.getTransaction().commit();
+		entityManager.getTransaction().begin();
+		entityManager.persist(orcamento);
+		var itens = orcamento.getItensOrcamento().stream().map(i -> {
+			i.setOrcamento(orcamento);
+			return i;
+		});
+		itens.forEach(entityManager::persist);
+		entityManager.getTransaction().commit();
 	}
 
 	@Override
 	public List<Orcamento> listar() {
-
 		return entityManager.createQuery("from Orcamento", Orcamento.class).getResultList();
+
 	}
 
 	@Override
 	public Orcamento recuperar(int id) {
 		return entityManager.find(Orcamento.class, id);
 	}
+
 
 }

@@ -10,7 +10,7 @@ public class OrcamentoRepositoryEmJava implements OrcamentoRepository{
 	static List<Orcamento> orcamentos = new ArrayList<>();
 	
 	@Override
-	public int obterMaiorId() {
+	public Integer obterMaiorId() {
 		if (orcamentos.isEmpty()) {
 			return 0;
 		}

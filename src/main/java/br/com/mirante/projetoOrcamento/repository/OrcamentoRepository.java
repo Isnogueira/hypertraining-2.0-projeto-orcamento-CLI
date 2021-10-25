@@ -6,7 +6,7 @@ import br.com.mirante.projetoOrcamento.domain.Orcamento;
 
 public interface OrcamentoRepository {
 
-	int obterMaiorId();
+	Integer obterMaiorId();
 
 	void salvar(Orcamento orcamento);
 

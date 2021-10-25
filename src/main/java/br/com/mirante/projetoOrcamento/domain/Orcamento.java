@@ -19,8 +19,7 @@ public class Orcamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String descricao;
 	private int mes;
 	private int ano;
@@ -28,7 +27,7 @@ public class Orcamento implements Serializable{
 	@Column(name="VALOR_TOTAL_INFORMADO")
 	private float valorTotalInformado;
 	
-	@OneToMany(mappedBy = "orcamento", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "orcamento")
 	List<ItemOrcamento> itensOrcamento;
 	
 	protected Orcamento() {}
@@ -42,11 +41,11 @@ public class Orcamento implements Serializable{
 		this.itensOrcamento = itensOrcamento;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 
 	}
@@ -70,6 +69,7 @@ public class Orcamento implements Serializable{
 	public List<ItemOrcamento> getItensOrcamento() {
 		return itensOrcamento;
 	}
+
 
 	public List<ItemOrcamento> detalharInconsistencia() {
 

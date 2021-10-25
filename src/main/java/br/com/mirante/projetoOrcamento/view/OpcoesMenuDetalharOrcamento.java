@@ -8,13 +8,12 @@ public enum OpcoesMenuDetalharOrcamento {
 	EXCLUIR_ITEM("2", "Excluir item", new ExcluirItemOrcamento()),
 	MENU_PRINCIPAL("3", "Detalhar Orçamento", new MenuPrincipal()),
 	SAIR("4","Sair", new Sair());
-	
+
 	private String numero;
 	private String descricao;
 	private Funcionalidade executor;
 	
 	private OpcoesMenuDetalharOrcamento(String numero, String descricao, Funcionalidade executor) {
-		
 		this.numero = numero;
 		this.descricao = descricao;
 		this.executor = executor;

@@ -19,7 +19,7 @@ public class OrcamentoRepositoryJdbc implements OrcamentoRepository {
 	private static final String PASSWORD = System.getenv().get("SISTEMA_ORCAMENTO_PASSWORD");
 
 	@Override
-	public int obterMaiorId() {
+	public Integer obterMaiorId() {
 
 		Integer maiorId = null;
 

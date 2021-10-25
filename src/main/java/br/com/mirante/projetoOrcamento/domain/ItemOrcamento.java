@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -13,12 +15,10 @@ import jakarta.persistence.Table;
 @Table(name="ITEM_ORCAMENTO")
 public class ItemOrcamento implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String origem;
 	private String codigo;
@@ -90,6 +90,43 @@ public class ItemOrcamento implements Serializable {
 	
 	public Orcamento getOrcamento() {
 		return orcamento;
+	}
+	
+	public void setOrcamento(Orcamento orcamento) {
+		this.orcamento = orcamento;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setValorUnitario(float valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
+
+	public void setQuantidade(float quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public void setValorTotalInformado(float valorTotalInformado) {
+		this.valorTotalInformado = valorTotalInformado;
 	}
 
 	public boolean possuiInconsistencia() {
