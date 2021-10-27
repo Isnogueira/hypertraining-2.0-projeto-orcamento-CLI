@@ -65,7 +65,7 @@ public class CadastrarOrcamentoUI implements Funcionalidade{
 		/*
 		 * IMPUT DE TESTE
 		 * IBGE;1234;Arroz;10;KG;8;80
-		 * IBGE;4567;Feijão;5;KG;10;50
+		 * IBGE;1234;Arroz;10;KG;8;80
 		 * IBGE;9876;Carne;30;KG;50;150
 		 */
 

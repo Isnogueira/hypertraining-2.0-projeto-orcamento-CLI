@@ -12,7 +12,8 @@ public class OrcamentoRepositoryJpa implements OrcamentoRepository{
 	@Override
 	public Integer obterMaiorId() {
 
-		return (Integer) entityManager.createQuery("select max(o.id) from Orcamento o").getSingleResult();
+		var maiorId = entityManager.createQuery("select max(o.id) from Orcamento o").getSingleResult();
+		return maiorId == null? 0 : (Integer) maiorId;
 	}
 
 	@Override
